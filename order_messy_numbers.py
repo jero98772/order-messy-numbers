@@ -2,7 +2,6 @@ import numpy as np
 import time
 import subprocess
 subprocess.run("touch lista.txt",shell=True)
-start=time.time()
 size=1000
 num=-1
 tmp=1
@@ -15,6 +14,7 @@ vector=rng.choice(size,size=size,replace=False)
 print(vector)
 
 input("lets go")
+start=time.time()
 for x in vector:
 
        select=x
@@ -22,49 +22,50 @@ for x in vector:
 
          if  itr != vector[itr]:
 
-         # time.sleep(1)
+          #time.sleep(0.0001)
           if vector[itr]>itr:
                 
                 itr+=1
                 print(">")
 
-                print("cuenta",itr,"\ncuent2",count)
+                print("cuenta",itr)#,"\ncuent2",count)
                 vec=np.append(vec,itr)
-                print(vec)
+                #print(vec)
                 break
           elif vector[itr] < itr:
              
                 itr+=1
                 print("<")
-                print("cuenta",itr,"\ncuent2",count)
+                print("cuenta",itr)#,"\ncuent2",count)
                 vec=np.append(vec,itr)
-                print(vec)
+                #print(vec)
                 num+=1
                 tmp+=1
                 break
          elif  vector[itr]== itr:
              if num<select<tmp:
                 print("==")
-                print("cuenta",itr,"\ncuent2",count)
+                print("cuenta",itr)#,"\ncuent2",count)
                 itr+=1
                 num+=1
                 tmp+=1
                 vec=np.append(vec,itr)
-                print(vec)
+                #print(vec)
                 break
 print(vec)
 print("\n\n")
 print(vector,"\n","\t"*5)
-print("        ") 
-print("   /\   ")
-print("  /  \   ") 
-print(" / _  \  ")
-print("/_/ \__\ ")
-print("  | |    ")
-print("  | |    ")
-print("  | |    ")
-print("  |_|    ")
-print("      ")
+print("                   ") 
+print("             ^     ") 
+print("            / \    ")
+print("           /   \   ") 
+print("          /     \  ")
+print("         /__/ \__\ ")
+print("            | |    ")
+print("            | |    ")
+print("            | |    ")
+print("            |_|    ")
+print("                    ")
 print(" _       _   _                                               ")
 print("(_)___  | |_| |__   ___    __ _ _ __  _____      _____ _ __  ")
 print("| / __| | __| '_ \ / _ \  / _` | '_ \/ __\ \ /\ / / _ \ '__| ")
