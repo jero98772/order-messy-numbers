@@ -1,25 +1,57 @@
 import numpy as np
+from pygame.mixer import Sound
+import pygame
 import time
 import subprocess
 subprocess.run("touch lista.txt",shell=True)
-size=1000
+size=eval(input("enter a int number"))
 num=-1
 tmp=1
 count=0
 itr=0
+delay=2
 vec=np.array([])
 rng=np.random.default_rng()
 vector=rng.choice(size,size=size,replace=False)
 #vector=np.random.randint(size ,size=size)
 print(vector)
-
+pygame.init()
+tv=Sound("soundTv.wav")
+buzz=Sound("buzz.wav")
+radar=Sound("radar.wav")
 input("lets go")
+pygame.mixer.music.set_volume(0.5)
+
 start=time.time()
 for x in vector:
-
+    
+       buzz.fadeout(10)
+       tv.fadeout(10)
+       radar.fadeout(20)
+       delay = delay /200
+       time.sleep(delay)
+       #print(delay)
+       buzz.stop()
+       tv.stop()
+       radar.stop()
+       if (itr+1 % tmp)!=0:
+         #buzz.play(size,0.5)
+            #print("zhhh")
+            buzz.play()
+            if itr>25:
+              radar.play()  
+              tv.play()
+            #buzz.stop()
+            
+            tv.stop()
+       elif (itr+1 % tmp)==0:
+           buzz.stop()
+           tv.play()
+           #time.sleep(0.5)
+           #tv.stop()
        select=x
        while itr< size:
-
+         time.sleep(0.5)
          if  itr != vector[itr]:
 
           #time.sleep(0.0001)
@@ -50,8 +82,10 @@ for x in vector:
                 num+=1
                 tmp+=1
                 vec=np.append(vec,itr)
+                break               
                 #print(vec)
-                break
+
+
 print(vec)
 print("\n\n")
 print(vector,"\n","\t"*5)
