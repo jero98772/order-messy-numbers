@@ -1,0 +1,1 @@
+add to work with out all numbers in this range for not breaks  algorithm  can make whit else and   additions to num+=1,tmp+=1 or jump itr with other counter
